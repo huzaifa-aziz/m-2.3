@@ -1,8 +1,8 @@
 "use client"
 
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react';
-import { Menu, X, Github, Linkedin, Mail, ExternalLink, Send } from 'lucide-react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { Menu, X, Github, Linkedin, Mail, Send } from 'lucide-react';
 
 // Navigation Component
 const Navigation = () => {
@@ -119,13 +119,13 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission here
     console.log('Form submitted:', formData);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
